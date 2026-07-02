@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World | Home</title>
+  <title>Hello World | About</title>
   <style>
     :root {
       color-scheme: dark;
@@ -62,7 +62,7 @@
       padding: clamp(32px, 7vw, 72px);
       display: grid;
       align-content: center;
-      gap: 28px;
+      gap: 24px;
       border-radius: 26px;
       border: 1px solid var(--panel-border);
       background:
@@ -115,8 +115,8 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(3.6rem, 12vw, 8.5rem);
-      line-height: 0.88;
+      font-size: clamp(3.2rem, 10vw, 7rem);
+      line-height: 0.9;
       letter-spacing: 0;
     }
 
@@ -131,48 +131,38 @@
     }
 
     .copy {
-      max-width: 56ch;
+      max-width: 58ch;
       margin: 0;
       color: var(--muted);
-      font-size: clamp(1rem, 2.3vw, 1.25rem);
+      font-size: clamp(1rem, 2.3vw, 1.18rem);
       line-height: 1.7;
     }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 0;
-      background: #f8f4ec;
-      color: #111318;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 14px 30px rgba(248, 244, 236, 0.18);
-      transition: transform 180ms ease, box-shadow 180ms ease;
+    .highlight {
+      min-height: 92px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.07);
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba(248, 244, 236, 0.24);
+    .highlight strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 1rem;
     }
 
-    .status {
+    .highlight span {
       color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .spark {
-      color: var(--accent-2);
+      font-size: 0.92rem;
+      line-height: 1.4;
     }
 
     @keyframes shine {
@@ -195,42 +185,56 @@
       }
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 620px) {
       body {
         overflow: auto;
         padding: 20px;
       }
 
       .card {
-        min-height: 520px;
+        min-height: 560px;
       }
 
       .eyebrow {
         width: auto;
       }
+
+      .highlights {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="shell" aria-label="Hello world welcome card">
+  <main class="shell" aria-label="About this site">
     <section class="card">
       <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <p class="eyebrow">First page, big entrance</p>
+      <p class="eyebrow">About the project</p>
       <h1>
-        Hello
-        <span class="gradient-text">World.</span>
+        Small file,
+        <span class="gradient-text">big mood.</span>
       </h1>
       <p class="copy">
-        A tiny HTML file with a little polish: glassy depth, animated color, crisp typography,
-        and enough sparkle to make the classic greeting feel awake.
+        This mini site started as a Hello World page and grew into a clean little web presence.
+        It uses only HTML and CSS, so it stays fast, portable, and easy to open anywhere.
       </p>
-      <div class="actions">
-        <a class="button" href="about.html">Meet the page <span class="spark">&nbsp;*</span></a>
-        <span class="status">Home, About, and Contact are linked.</span>
+      <div class="highlights" aria-label="Site highlights">
+        <div class="highlight">
+          <strong>Simple</strong>
+          <span>No frameworks, no setup, just pages that work.</span>
+        </div>
+        <div class="highlight">
+          <strong>Polished</strong>
+          <span>Glassy depth, animated color, and responsive layout.</span>
+        </div>
+        <div class="highlight">
+          <strong>Linked</strong>
+          <span>Home, About, and Contact stay connected.</span>
+        </div>
       </div>
     </section>
   </main>
